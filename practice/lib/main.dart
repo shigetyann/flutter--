@@ -46,6 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  // タスクを削除するメソッド
+  void _removeTask(int index) {
+    setState(() {
+      tasks.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +87,6 @@ class _MyHomePageState extends State<MyHomePage> {
               itemCount: tasks.length,
               itemBuilder: (context, index) {
                 return ListTile(
-
                   title: Text(
                     tasks[index].name,  // タスク名を表示
                     style: TextStyle(
