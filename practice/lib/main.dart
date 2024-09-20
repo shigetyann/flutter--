@@ -80,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               itemCount: tasks.length,
               itemBuilder: (context, index) {
                 return ListTile(
+
                   title: Text(
                     tasks[index].name,  // タスク名を表示
                     style: TextStyle(
@@ -87,6 +88,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           ? TextDecoration.lineThrough  // 完了したタスクには取り消し線を表示
                           : TextDecoration.none,
                     ),
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () {
+                      _removeTask(index);  // タスクを削除
+                    },
                   ),
                 );
               },
