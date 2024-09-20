@@ -74,6 +74,24 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          Expanded(
+            // タスクリストを表示
+            child: ListView.builder(
+              itemCount: tasks.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    tasks[index].name,  // タスク名を表示
+                    style: TextStyle(
+                      decoration: tasks[index].isCompleted
+                          ? TextDecoration.lineThrough  // 完了したタスクには取り消し線を表示
+                          : TextDecoration.none,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
